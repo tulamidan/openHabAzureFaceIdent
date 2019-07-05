@@ -1,5 +1,6 @@
-# openHabAzureFaceIdent
+# OpenHab Azure Face Identification
 A set of tools to help you identify faces via your Openhab2 and a camera in your network using MS Azure cognitive AI
+Most of this applies no matter if you use Openhab. The core is a python script that takes an image as input and the result is an ID. This makes sense in an home automation environment to trigger a personalized set of rules depending on the person triggering it.
 
 
 First you need an Azure account. You can register one for free.
@@ -10,7 +11,6 @@ Then you will need to sign up for the Cognitive Services which is free too. http
 Here you need to set up the account which is pretty staight forward: Just make sure that you use the "Free" Version with 30k requests/month. Or feel free to pay if you need more.
 
 Then you need to make sure to not down the key. We need Key1 for our entire task
-
 
 The next thing you will need is a REST Client like Postman. For this exercise I have created a set of commands that are ready for you to use. You will just need to import the .json from the github repo and import it into postman.
 Here you need to update the key: Ocp-Apim-Subscription-Key with your "Key1"
