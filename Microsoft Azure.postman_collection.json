@@ -1,0 +1,460 @@
+{
+	"info": {
+		"_postman_id": "ea8e8ce8-3919-4685-b02a-2ca8a00dc000",
+		"name": "Microsoft Azure",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create PersonGroup (use)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"group2\",\r\n    \"userData\": \"user-provided data attached to the person group.\",\r\n    \"recognitionModel\": \"recognition_02\"\r\n}"
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/{personGroupId}?personGroupId=group2",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"persongroups",
+						"{personGroupId}"
+					],
+					"query": [
+						{
+							"key": "personGroupId",
+							"value": "group2"
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Person in PersonGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Person1\",\r\n    \"userData\": \"User-provided data attached to the person.\"\r\n}"
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/{group1}/persons?personGroupId=string",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"persongroups",
+						"{group1}",
+						"persons"
+					],
+					"query": [
+						{
+							"key": "personGroupId",
+							"value": "string"
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "AddFace to Person in PersonGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/octet-stream"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/USER/Downloads/oh.jpg"
+					}
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/{group2}/persons/{b8e13000000714ac91d}/persistedFaces?personGroupId=group2&personId=e598c0000000000a14b958c&detectionModel=detection_02",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"persongroups",
+						"{group2}",
+						"persons",
+						"{b8e13f5200000-3bc07000091d}",
+						"persistedFaces"
+					],
+					"query": [
+						{
+							"key": "personGroupId",
+							"value": "group2"
+						},
+						{
+							"key": "personId",
+							"value": "e598ce88-300000000000000308ea1008c"
+						},
+						{
+							"key": "detectionModel",
+							"value": "detection_02"
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "GetInfo about a personGroup",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"persongroups",
+						""
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "personGroup Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/?personGroupId=string",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"persongroups",
+						""
+					],
+					"query": [
+						{
+							"key": "personGroupId",
+							"value": "string"
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "Train Model for personGroup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/{group1}/train?personGroupId=group2",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"persongroups",
+						"{group1}",
+						"train"
+					],
+					"query": [
+						{
+							"key": "personGroupId",
+							"value": "group2"
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "personGroup Train Status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/{group2}/training?personGroupId=group2",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"persongroups",
+						"{group1}",
+						"training"
+					],
+					"query": [
+						{
+							"key": "personGroupId",
+							"value": "group2"
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "Detect Face from Image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/octet-stream"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/USER/Downloads/E00000.jpg"
+					}
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/detect",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"detect"
+					],
+					"query": [
+						{
+							"key": "recognitionModel",
+							"value": "recognition_02",
+							"disabled": true
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		},
+		{
+			"name": "Identify previously detected Image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"type": "text",
+						"value": "000000000000000000000000000000"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personGroupId\":\"group2\",\r\n    \"faceIds\": [\r\n        \"838aba00000000000000000fd3\"\r\n    ],\r\n    \"maxNumOfCandidatesReturned\": 1,\r\n    \"confidenceThreshold\": 0.5\r\n}"
+				},
+				"url": {
+					"raw": "https://westeurope.api.cognitive.microsoft.com/face/v1.0/identify",
+					"protocol": "https",
+					"host": [
+						"westeurope",
+						"api",
+						"cognitive",
+						"microsoft",
+						"com"
+					],
+					"path": [
+						"face",
+						"v1.0",
+						"identify"
+					],
+					"query": [
+						{
+							"key": "Ocp-Apim-Subscription-Key",
+							"value": "000000000000000000000000000000",
+							"disabled": true
+						}
+					]
+				},
+				"description": "add face zu ms service"
+			},
+			"response": []
+		}
+
+	]
+}
